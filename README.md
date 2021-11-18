@@ -60,7 +60,6 @@ Pour valider notre soutenance et notre projet, nous avons plusieurs rendus à fo
 * Rédaction de la doc du projet.
 * Rédaction du mémoire.
 * Notion de « et après ». Argumenter sur le futur de l’application.
-* Notion de période de maintenance dans les consignes ? Késaco… à réfléchir.
 * Proposer une identité d’entreprise et se mettre à la place des clients et des utilisateurs.
 * Powerpoint.
 
