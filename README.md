@@ -46,12 +46,23 @@ Les applications doivent respectées certaines règles pour que notre projet soi
 ### Amélioration du projet global
 Voici les améliorations internes et externes au projet de développement dans le but d'améliorer le rendu global pour notre soutenance. Ce n'est pas forcément un contenu palpable. Par exemple, nous comptons faire tester les deux applications à des personnes extérieures au projet pour s'assurer des différents critères.
 
-* Test de sécurité au fur et à mesure ou en dernier ? Comment tester l’application ? Comment tester le site ?
-* Faire tester l’application web et mobile par des utilisateurs extérieurs. Il faut que la simplicité soit de rigueur.
+* Test de sécurité
+* Faire tester l’application web et mobile par des utilisateurs extérieurs
 * Page d’aide pour utilisation des applications.
 * Vidéo Youtube pour expliquer le fonctionnement de l’application (avec sous-titres si possible).
 
 
 ### Rendu du projet
+Pour valider notre soutenance et notre projet, nous avons plusieurs rendus à fournir:
+
+* Cahier des charges.
+* Diagramme de classe UML et schéma de la base de données.
+* Rédaction de la doc du projet.
+* Rédaction du mémoire.
+* Notion de « et après ». Argumenter sur le futur de l’application.
+* Notion de période de maintenance dans les consignes ? Késaco… à réfléchir.
+* Proposer une identité d’entreprise et se mettre à la place des clients et des utilisateurs.
+* Powerpoint.
+
 
 [Retour en haut](#projet-cubes-cesi)
