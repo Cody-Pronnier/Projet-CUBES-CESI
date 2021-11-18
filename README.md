@@ -12,7 +12,8 @@ Mise en place de plusieurs outils pour le projet: Git(lien vers git du projet), 
 
 Organisation du projet: Nous nous sommes répartis le projet en fonction des "compétences" des membres du projet. Le projet est divisé en 3 parties. Le front de l'application Web(qui sera réalisé principalement par Noé), le front de l'application mobile(par Paul) et l'api node (par Cody). 
 
-# Fonctionnalités du projet: A la fin du projet de nombreuses fonctionnalités devront être présentes. Voici la liste de celles-ci(qui peut/va évoluer au fil de l'avancement de notre projet).
+# Fonctionnalités du projet:
+A la fin du projet de nombreuses fonctionnalités devront être présentes. Voici la liste de celles-ci(qui peut/va évoluer au fil de l'avancement de notre projet).
 
 - L'accès pour chaque citoyen à des ressources via ses relations.
 - Filtres pour les ressources (Catégories, types de relations, type de ressources, etc…).
