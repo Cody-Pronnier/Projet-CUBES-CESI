@@ -1,6 +1,6 @@
 # Projet-CUBES-CESI
 1. [Fonctionnalités du projet](#fonctionnalités-du-projet)
-2. [Identité graphique de l’application](#identité-graphique-de-l'application)
+2. [Identité graphique de l’application](#identité-graphique-de-l'-application)
 3. [Installation](#installation)
 4. [Collaboration](#collaboration)
 5. [FAQs](#faqs)
