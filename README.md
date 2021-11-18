@@ -1,18 +1,28 @@
 # Projet-CUBES-CESI
+1. [Fonctionnalités du projet](#fonctionnalites-du-projet)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
+4. [Collaboration](#collaboration)
+5. [FAQs](#faqs)
+### Contexte du projet: 
+Un projet fil rouge en groupe de 3 pour notre 3ème année de développeur informatique à l'école CESI.
 
-Contexte du projet: Un projet fil rouge en groupe de 3 pour notre 3ème année de développeur informatique à l'école CESI.
+### Type du projet:
+Réseau social sur des échanges de ressources affilié au gouvernement français.
 
-Type du projet: Réseau social sur des échanges de ressources affilié au gouvernement français.
+###Technologies:
+React/Next.js, Node js et PostGreSql.
 
-Technologies : React/Next.js, Node js et PostGreSql.
+### Design Pattern:
+MVC (Models/Views/Controllers).
 
-Design Pattern: MVC (Models/Views/Controllers).
+###Mise en place de plusieurs outils pour le projet:
+Git(lien vers git du projet), Trello(lien vers trello du projet), base de données(PostGreSql).
 
-Mise en place de plusieurs outils pour le projet: Git(lien vers git du projet), Trello(lien vers trello du projet), base de données(PostGreSql).
+### Organisation du projet:
+Nous nous sommes répartis le projet en fonction des "compétences" des membres du projet. Le projet est divisé en 3 parties. Le front de l'application Web(qui sera réalisé principalement par Noé), le front de l'application mobile(par Paul) et l'api node (par Cody). 
 
-Organisation du projet: Nous nous sommes répartis le projet en fonction des "compétences" des membres du projet. Le projet est divisé en 3 parties. Le front de l'application Web(qui sera réalisé principalement par Noé), le front de l'application mobile(par Paul) et l'api node (par Cody). 
-
-# Fonctionnalités du projet:
+## Fonctionnalités du projet:
 A la fin du projet de nombreuses fonctionnalités devront être présentes. Voici la liste de celles-ci(qui peut/va évoluer au fil de l'avancement de notre projet).
 
 - L'accès pour chaque citoyen à des ressources via ses relations.
@@ -26,7 +36,7 @@ A la fin du projet de nombreuses fonctionnalités devront être présentes. Voic
 - Comptabilité avec tous les navigateurs existants (Chrome, Safari, Firefox, Edge, Internet Explorer, Opera…).
 - Chiffrement des données et Anonymat.
 
-# Identité graphique de l’application:
+## Identité graphique de l’application:
 
 Les applications doivent respectées certaines règles pour que notre projet soit valide. Elles doivent être adaptées à tous les âges, ergonomiques avec une simplicité d’utilisation, responsives et mobile first et en respectant la charte graphique du gouvernement.
 
