@@ -10,13 +10,13 @@ Un projet fil rouge en groupe de 3 pour notre 3ème année de développeur infor
 ### Type du projet:
 Réseau social sur des échanges de ressources affilié au gouvernement français.
 
-###Technologies:
+### Technologies:
 React/Next.js, Node js et PostGreSql.
 
 ### Design Pattern:
 MVC (Models/Views/Controllers).
 
-###Mise en place de plusieurs outils pour le projet:
+### Mise en place de plusieurs outils pour le projet:
 Git(lien vers git du projet), Trello(lien vers trello du projet), base de données(PostGreSql).
 
 ### Organisation du projet:
