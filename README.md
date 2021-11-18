@@ -1,5 +1,5 @@
 # Projet-CUBES-CESI
-1. [Fonctionnalités du projet](#fonctionnalites-du-projet)
+1. [Fonctionnalites du projet](#fonctionnalites-du-projet)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
 4. [Collaboration](#collaboration)
