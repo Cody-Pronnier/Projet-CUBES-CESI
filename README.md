@@ -38,16 +38,16 @@ A la fin du projet de nombreuses fonctionnalités devront être présentes. Voic
 ### Identité graphique de notre application
 
 Les applications doivent respectées certaines règles pour que notre projet soit valide:
-* adaptées à tous les âges
-* ergonomiques avec une simplicité d’utilisation
-* responsives et mobile first
+* adaptées à tous les âges.
+* ergonomiques avec une simplicité d’utilisation.
+* responsives et mobile first.
 * respectant la charte graphique du gouvernement.
 
 ### Amélioration du projet global
 Voici les améliorations internes et externes au projet de développement dans le but d'améliorer le rendu global pour notre soutenance. Ce n'est pas forcément un contenu palpable. Par exemple, nous comptons faire tester les deux applications à des personnes extérieures au projet pour s'assurer des différents critères.
 
 * Test de sécurité
-* Faire tester l’application web et mobile par des utilisateurs extérieurs
+* Faire tester l’application web et mobile par des utilisateurs extérieurs.
 * Page d’aide pour utilisation des applications.
 * Vidéo Youtube pour expliquer le fonctionnement de l’application (avec sous-titres si possible).
 
