@@ -1,6 +1,6 @@
 # Projet-CUBES-CESI
 1. [Fonctionnalités du projet](#fonctionnalités-du-projet)
-2. [Identité graphique de l’application](#identité-graphique)
+2. [Identité graphique de l’application](#identité-graphique-de-notre-application)
 3. [Installation](#installation)
 4. [Collaboration](#collaboration)
 5. [FAQs](#faqs)
@@ -36,7 +36,7 @@ A la fin du projet de nombreuses fonctionnalités devront être présentes. Voic
 - Comptabilité avec tous les navigateurs existants (Chrome, Safari, Firefox, Edge, Internet Explorer, Opera…).
 - Chiffrement des données et Anonymat.
 
-## Identité graphique:
+## Identité graphique de notre application:
 
 Les applications doivent respectées certaines règles pour que notre projet soit valide. Elles doivent être adaptées à tous les âges, ergonomiques avec une simplicité d’utilisation, responsives et mobile first et en respectant la charte graphique du gouvernement.
 
