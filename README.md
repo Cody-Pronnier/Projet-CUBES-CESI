@@ -1,9 +1,10 @@
 # Projet-CUBES-CESI
-1. [Fonctionnalités du projet](#fonctionnalités-du-projet)
-2. [Identité graphique de l’application](#identité-graphique-de-notre-application)
-3. [Installation](#installation)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+1. [Bases du projet](#Bases-du-projet)
+2. [Fonctionnalités du projet](#fonctionnalités-du-projet)
+3. [Identité graphique de l’application](#identité-graphique-de-notre-application)
+
+## Bases du projet:
+
 ### Contexte du projet: 
 Un projet fil rouge en groupe de 3 pour notre 3ème année de développeur informatique à l'école CESI.
 
@@ -14,7 +15,7 @@ Réseau social sur des échanges de ressources affilié au gouvernement françai
 React/Next.js, Node js et PostGreSql.
 
 ### Design Pattern:
-MVC (Models/Views/Controllers).
+MVC(Models/Views/Controllers).
 
 ### Mise en place de plusieurs outils pour le projet:
 Git(lien vers git du projet), Trello(lien vers trello du projet), base de données(PostGreSql).
