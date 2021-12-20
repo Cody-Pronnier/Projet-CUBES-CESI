@@ -9,7 +9,7 @@
 ### Bases du projet
 Nous vous expliquons les bases que nous avons utilisé pour arriver à un projet solide en terme d'organisation et de technologies.
 
-* Contexte du projet: Un projet fil rouge en groupe de 3 pour notre 3ème année de développeur informatique à l'école CESI.
+* Contexte du projet: Un projet fil rouge en groupe de 4 pour notre 3ème année de développeur informatique à l'école CESI.
 
 * Type du projet: Réseau social sur des échanges de ressources affilié au gouvernement français.
 
