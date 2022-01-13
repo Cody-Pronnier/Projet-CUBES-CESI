@@ -55,16 +55,22 @@ var RoleController = /** @class */ (function () {
             });
         }); };
         this.create = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var role, newRole;
+            var role, newRole, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        _a.trys.push([0, 2, , 3]);
                         role = req['body'];
                         return [4 /*yield*/, this.roleService.create(role)];
                     case 1:
                         newRole = _a.sent();
                         res.send(newRole); // Execute the method of service
-                        return [2 /*return*/];
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.error(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         }); };

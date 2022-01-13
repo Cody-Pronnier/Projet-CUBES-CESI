@@ -22,6 +22,7 @@ export class RoleController {
         const role = req['body'] as RoleEntity;
         const newRole = await this.roleService.create(role);
         res.send(newRole); // Execute the method of service
+ 
     }
 
     public update = async (req: Request, res: Response) => {
