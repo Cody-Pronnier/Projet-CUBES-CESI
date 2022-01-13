@@ -7,7 +7,7 @@
 5. [Rendu du projet](#rendu-du-projet)
 
 ### Bases du projet
-Nous vous expliquons les bases que nous avons utilisé pour arriver à un projet solide en terme d'organisation et de technologies.
+Nous vous expliquons les bases que nous avons utilisé pour arriver à un projet solide en terme d'organisation et de technologies. test
 
 * Contexte du projet: Un projet fil rouge en groupe de 4 pour notre 3ème année de développeur informatique à l'école CESI.
 
