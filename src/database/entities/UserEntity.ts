@@ -1,25 +1,28 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('users')
+@Entity('utilisateur')
 export class UserEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+    id_uti: number;
 
     @Column({ nullable: true })
-    firstname: string;
+    nom_uti: string;
 
     @Column({ nullable: true })
-    lastname: string;
+    prenom_uti: string;
 
     @Column({ nullable: true })
-    password: string;
+    mail_uti: string;
 
     @Column({ nullable: true })
-    alias: string;
-    
-    @Column({ nullable: true })
-    create_date: Date;
+    mot_de_passe_uti: string;
 
     @Column({ nullable: true })
-    isActive: boolean;
+    date_creation_uti: Date;
+
+    @Column({ nullable: true })
+    compte_actif_uti: boolean;
+
+    @Column({ nullable: true })
+    pseudo_uti: string;
 }

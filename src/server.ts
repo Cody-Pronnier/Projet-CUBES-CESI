@@ -1,9 +1,11 @@
 import express, { Request, Response } from 'express';
 import { UserController } from './controllers/user.controller'; // import the post controller
+import { RoleController } from './controllers/role.controller';
 import { createConnection } from "typeorm";
 
 class Server {
     private userController: UserController;
+    private roleController: RoleController;
     private app: express.Application;
 
     constructor() {
@@ -14,8 +16,6 @@ class Server {
 
     /**
      * Method to configure the server,
-     * If we didn't configure the port into the environment 
-     * variables it takes the default port 3000
      */
     public configuration() {
         this.app.set('port', process.env.PORT || 3001);
@@ -28,23 +28,25 @@ class Server {
     public async routes() {
         await createConnection({
             type: "postgres",
-            host: "localhost",
+            host: "postgresql-cubes.alwaysdata.net",
             port: 5433,
-            username: "alex",
-            password: "cubes",
-            database: "projetCUBES",
+            username: "cubes",
+            password: "15342679",
+            database: "cubes_reseau_social",
             entities: ["build/database/entities/**/*.js"],
             synchronize: true,
             name: "projetCUBES"
         });
 
         this.userController = new UserController();
+        this.roleController = new RoleController();
 
         this.app.get("/", (req: Request, res: Response) => {
             res.send("Hello world!");
         });
 
-        this.app.use(`/api/users/`, this.userController.router); // Configure the new routes of the controller user
+        this.app.use(`/api/utilisateur/`, this.userController.router); // Configure the new routes of the controller user
+        this.app.use(`/api/role/`, this.roleController.router); // Configure the new routes of the controller user
     }
 
     /**

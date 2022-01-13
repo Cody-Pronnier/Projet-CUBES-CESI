@@ -35,69 +35,69 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(require("express"));
-var user_controller_1 = require("./controllers/user.controller"); // import the post controller
-var role_controller_1 = require("./controllers/role.controller");
-var typeorm_1 = require("typeorm");
-var Server = /** @class */ (function () {
-    function Server() {
-        this.app = (0, express_1.default)(); // init the application
-        this.configuration();
-        this.routes();
-    }
-    /**
-     * Method to configure the server,
-     */
-    Server.prototype.configuration = function () {
-        this.app.set('port', process.env.PORT || 3001);
-        this.app.use(express_1.default.json());
-    };
-    /**
-     * Method to configure the routes
-     */
-    Server.prototype.routes = function () {
-        return __awaiter(this, void 0, void 0, function () {
+exports.RoleController = void 0;
+var express_1 = require("express");
+var role_service_1 = require("../services/role.service");
+var RoleController = /** @class */ (function () {
+    function RoleController() {
+        var _this = this;
+        this.index = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var roles;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, (0, typeorm_1.createConnection)({
-                            type: "postgres",
-                            host: "postgresql-cubes.alwaysdata.net",
-                            port: 5433,
-                            username: "cubes",
-                            password: "15342679",
-                            database: "cubes_reseau_social",
-                            entities: ["build/database/entities/**/*.js"],
-                            synchronize: true,
-                            name: "projetCUBES"
-                        })];
+                    case 0: return [4 /*yield*/, this.roleService.index()];
                     case 1:
-                        _a.sent();
-                        this.userController = new user_controller_1.UserController();
-                        this.roleController = new role_controller_1.RoleController();
-                        this.app.get("/", function (req, res) {
-                            res.send("Hello world!");
-                        });
-                        this.app.use("/api/utilisateur/", this.userController.router); // Configure the new routes of the controller user
-                        this.app.use("/api/role/", this.roleController.router); // Configure the new routes of the controller user
+                        roles = _a.sent();
+                        res.send(roles).json(); // Execute the method of service
                         return [2 /*return*/];
                 }
             });
-        });
-    };
+        }); };
+        this.create = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var role, newRole;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        role = req['body'];
+                        return [4 /*yield*/, this.roleService.create(role)];
+                    case 1:
+                        newRole = _a.sent();
+                        res.send(newRole); // Execute the method of service
+                        return [2 /*return*/];
+                }
+            });
+        }); };
+        this.update = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var role, id;
+            return __generator(this, function (_a) {
+                role = req['body'];
+                id = req['params']['id'];
+                res.send(this.roleService.update(role, Number(id))); // Execute the method of service
+                return [2 /*return*/];
+            });
+        }); };
+        this.delete = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var id;
+            return __generator(this, function (_a) {
+                id = req['params']['id'];
+                res.send(this.roleService.delete(Number(id))); // Execute the method of service
+                return [2 /*return*/];
+            });
+        }); };
+        this.router = (0, express_1.Router)();
+        this.roleService = new role_service_1.RoleService(); //Create a new instance of UserController
+        this.routes();
+    }
     /**
-     * Used to start the server
+     * Configure the routes of controller
      */
-    Server.prototype.start = function () {
-        var _this = this;
-        this.app.listen(this.app.get('port'), function () {
-            console.log("Server is listening ".concat(_this.app.get('port'), " port."));
-        });
+    RoleController.prototype.routes = function () {
+        this.router.get('/', this.index);
+        this.router.post('/', this.create);
+        this.router.put('/:id', this.update);
+        this.router.delete('/:id', this.delete);
     };
-    return Server;
+    return RoleController;
 }());
-var server = new Server(); // Create server instance
-server.start(); // Execute the server
+exports.RoleController = RoleController;

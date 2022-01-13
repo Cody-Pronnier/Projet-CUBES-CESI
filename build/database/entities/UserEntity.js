@@ -17,33 +17,37 @@ var UserEntity = /** @class */ (function () {
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
         __metadata("design:type", Number)
-    ], UserEntity.prototype, "id", void 0);
+    ], UserEntity.prototype, "id_uti", void 0);
     __decorate([
         (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "firstname", void 0);
+    ], UserEntity.prototype, "nom_uti", void 0);
     __decorate([
         (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "lastname", void 0);
+    ], UserEntity.prototype, "prenom_uti", void 0);
     __decorate([
         (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "password", void 0);
+    ], UserEntity.prototype, "mail_uti", void 0);
     __decorate([
         (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "alias", void 0);
+    ], UserEntity.prototype, "mot_de_passe_uti", void 0);
     __decorate([
         (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", Date)
-    ], UserEntity.prototype, "create_date", void 0);
+    ], UserEntity.prototype, "date_creation_uti", void 0);
     __decorate([
         (0, typeorm_1.Column)({ nullable: true }),
         __metadata("design:type", Boolean)
-    ], UserEntity.prototype, "isActive", void 0);
+    ], UserEntity.prototype, "compte_actif_uti", void 0);
+    __decorate([
+        (0, typeorm_1.Column)({ nullable: true }),
+        __metadata("design:type", String)
+    ], UserEntity.prototype, "pseudo_uti", void 0);
     UserEntity = __decorate([
-        (0, typeorm_1.Entity)('users')
+        (0, typeorm_1.Entity)('utilisateur')
     ], UserEntity);
     return UserEntity;
 }());

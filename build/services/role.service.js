@@ -35,69 +35,60 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(require("express"));
-var user_controller_1 = require("./controllers/user.controller"); // import the post controller
-var role_controller_1 = require("./controllers/role.controller");
+exports.RoleService = void 0;
 var typeorm_1 = require("typeorm");
-var Server = /** @class */ (function () {
-    function Server() {
-        this.app = (0, express_1.default)(); // init the application
-        this.configuration();
-        this.routes();
-    }
-    /**
-     * Method to configure the server,
-     */
-    Server.prototype.configuration = function () {
-        this.app.set('port', process.env.PORT || 3001);
-        this.app.use(express_1.default.json());
-    };
-    /**
-     * Method to configure the routes
-     */
-    Server.prototype.routes = function () {
-        return __awaiter(this, void 0, void 0, function () {
+var role_repository_1 = require("../repository/role.repository");
+var RoleService = /** @class */ (function () {
+    function RoleService() {
+        var _this = this;
+        this.index = function () { return __awaiter(_this, void 0, void 0, function () {
+            var roles;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, (0, typeorm_1.createConnection)({
-                            type: "postgres",
-                            host: "postgresql-cubes.alwaysdata.net",
-                            port: 5433,
-                            username: "cubes",
-                            password: "15342679",
-                            database: "cubes_reseau_social",
-                            entities: ["build/database/entities/**/*.js"],
-                            synchronize: true,
-                            name: "projetCUBES"
-                        })];
+                    case 0: return [4 /*yield*/, this.roleRepository.find()];
                     case 1:
-                        _a.sent();
-                        this.userController = new user_controller_1.UserController();
-                        this.roleController = new role_controller_1.RoleController();
-                        this.app.get("/", function (req, res) {
-                            res.send("Hello world!");
-                        });
-                        this.app.use("/api/utilisateur/", this.userController.router); // Configure the new routes of the controller user
-                        this.app.use("/api/role/", this.roleController.router); // Configure the new routes of the controller user
-                        return [2 /*return*/];
+                        roles = _a.sent();
+                        console.log(roles);
+                        return [2 /*return*/, roles];
                 }
             });
-        });
-    };
-    /**
-     * Used to start the server
-     */
-    Server.prototype.start = function () {
-        var _this = this;
-        this.app.listen(this.app.get('port'), function () {
-            console.log("Server is listening ".concat(_this.app.get('port'), " port."));
-        });
-    };
-    return Server;
+        }); };
+        this.create = function (role) { return __awaiter(_this, void 0, void 0, function () {
+            var newRole;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.roleRepository.save(role)];
+                    case 1:
+                        newRole = _a.sent();
+                        return [2 /*return*/, newRole];
+                }
+            });
+        }); };
+        this.update = function (user, id) { return __awaiter(_this, void 0, void 0, function () {
+            var updatedRole;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.roleRepository.update(id, user)];
+                    case 1:
+                        updatedRole = _a.sent();
+                        return [2 /*return*/, updatedRole];
+                }
+            });
+        }); };
+        this.delete = function (id) { return __awaiter(_this, void 0, void 0, function () {
+            var deletedRole;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.roleRepository.delete(id)];
+                    case 1:
+                        deletedRole = _a.sent();
+                        return [2 /*return*/, deletedRole];
+                }
+            });
+        }); };
+        this.roleRepository = (0, typeorm_1.getConnection)('projetCUBES').getCustomRepository(role_repository_1.RoleRepository);
+    }
+    return RoleService;
 }());
-var server = new Server(); // Create server instance
-server.start(); // Execute the server
+exports.RoleService = RoleService;
