@@ -19,9 +19,12 @@ export class UserController {
     }
 
     public create = async (req: Request, res: Response) => {
-       const user = req['body'] as UserEntity;
-       const newUser = await this.userService.create(user);
-       res.send(newUser); // Execute the method of service
+        const user = req['body'] as UserEntity;
+        user.date_creation_uti = new Date;
+        user.compte_actif_uti = false;
+        console.log(user);
+        const newUser = await this.userService.create(user);
+        res.send(newUser); // Execute the method of service
     }
 
     public update = async (req: Request, res: Response) => {
@@ -30,7 +33,7 @@ export class UserController {
 
         res.send(this.userService.update(user, Number(id)));  // Execute the method of service
 
-       
+
     }
 
     public delete = async (req: Request, res: Response) => {
@@ -38,7 +41,7 @@ export class UserController {
         res.send(this.userService.delete(Number(id)));  // Execute the method of service
 
     }
- 
+
     /**
      * Configure the routes of controller
      */
