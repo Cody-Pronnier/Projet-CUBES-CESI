@@ -5,9 +5,9 @@ export class RoleEntity {
     @PrimaryGeneratedColumn()
     id_rol: number;
 
-    @Column({ nullable: true })
+    @Column()
     nom_rol: string;
 
-    @Column({ nullable: true })
+    @Column()
     trigramme_rol: string;
 }

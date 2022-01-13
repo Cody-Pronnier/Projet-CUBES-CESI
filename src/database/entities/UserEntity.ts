@@ -5,24 +5,24 @@ export class UserEntity {
     @PrimaryGeneratedColumn()
     id_uti: number;
 
-    @Column({ nullable: true })
+    @Column()
     nom_uti: string;
 
-    @Column({ nullable: true })
+    @Column()
     prenom_uti: string;
 
-    @Column({ nullable: true })
+    @Column()
     mail_uti: string;
 
-    @Column({ nullable: true })
+    @Column()
     mot_de_passe_uti: string;
 
-    @Column({ nullable: true })
+    @Column()
     date_creation_uti: Date;
 
-    @Column({ nullable: true })
+    @Column()
     compte_actif_uti: boolean;
 
-    @Column({ nullable: true })
+    @Column()
     pseudo_uti: string;
 }

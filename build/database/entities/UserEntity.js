@@ -19,31 +19,31 @@ var UserEntity = /** @class */ (function () {
         __metadata("design:type", Number)
     ], UserEntity.prototype, "id_uti", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserEntity.prototype, "nom_uti", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserEntity.prototype, "prenom_uti", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserEntity.prototype, "mail_uti", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserEntity.prototype, "mot_de_passe_uti", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", Date)
     ], UserEntity.prototype, "date_creation_uti", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", Boolean)
     ], UserEntity.prototype, "compte_actif_uti", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], UserEntity.prototype, "pseudo_uti", void 0);
     UserEntity = __decorate([

@@ -43,6 +43,10 @@ var express_1 = __importDefault(require("express"));
 var user_controller_1 = require("./controllers/user.controller"); // import the post controller
 var role_controller_1 = require("./controllers/role.controller");
 var typeorm_1 = require("typeorm");
+var cors = require('cors');
+var corsOptions = {
+    origin: 'http://localhost:3005',
+};
 var Server = /** @class */ (function () {
     function Server() {
         this.app = (0, express_1.default)(); // init the application
@@ -78,11 +82,11 @@ var Server = /** @class */ (function () {
                         _a.sent();
                         this.userController = new user_controller_1.UserController();
                         this.roleController = new role_controller_1.RoleController();
-                        this.app.get("/", function (req, res) {
+                        this.app.get("/", cors(corsOptions), function (req, res) {
                             res.send("Hello world!");
                         });
-                        this.app.use("/api/utilisateur/", this.userController.router); // Configure the new routes of the controller user
-                        this.app.use("/api/role/", this.roleController.router); // Configure the new routes of the controller user
+                        this.app.use("/api/utilisateur/", cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
+                        this.app.use("/api/role/", cors(corsOptions), this.roleController.router); // Configure the new routes of the controller user
                         return [2 /*return*/];
                 }
             });

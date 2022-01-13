@@ -3,10 +3,17 @@ import { UserController } from './controllers/user.controller'; // import the po
 import { RoleController } from './controllers/role.controller';
 import { createConnection } from "typeorm";
 
+const cors = require('cors');
+
+const corsOptions = {
+    origin:'http://localhost:3005',
+}
 class Server {
     private userController: UserController;
     private roleController: RoleController;
     private app: express.Application;
+
+    
 
     constructor() {
         this.app = express(); // init the application
@@ -41,12 +48,12 @@ class Server {
         this.userController = new UserController();
         this.roleController = new RoleController();
 
-        this.app.get("/", (req: Request, res: Response) => {
+        this.app.get("/", cors(corsOptions), (req: Request, res: Response) => {
             res.send("Hello world!");
         });
 
-        this.app.use(`/api/utilisateur/`, this.userController.router); // Configure the new routes of the controller user
-        this.app.use(`/api/role/`, this.roleController.router); // Configure the new routes of the controller user
+        this.app.use(`/api/utilisateur/`, cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
+        this.app.use(`/api/role/`, cors(corsOptions), this.roleController.router); // Configure the new routes of the controller user
     }
 
     /**
