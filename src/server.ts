@@ -2,6 +2,8 @@ import express, { Request, Response } from 'express';
 import { UserController } from './controllers/user.controller'; // import the post controller
 import { RoleController } from './controllers/role.controller';
 import { createConnection } from "typeorm";
+import { create } from 'domain';
+import { createHash } from 'crypto';
 
 const cors = require('cors');
 
@@ -51,7 +53,6 @@ class Server {
         this.app.get("/", cors(corsOptions), (req: Request, res: Response) => {
             res.send("Hello world!");
         });
-
         this.app.use(`/api/utilisateur/`, cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
         this.app.use(`/api/role/`, cors(corsOptions), this.roleController.router); // Configure the new routes of the controller user
     }
