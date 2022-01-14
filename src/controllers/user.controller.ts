@@ -1,7 +1,7 @@
 import { Router, Response, Request } from "express";
 import { UserEntity } from "../database/entities/UserEntity";
 import { UserService } from "../services/user.service";
-
+var bcrypt = require('bcrypt');
 
 export class UserController {
     public router: Router;
@@ -20,9 +20,12 @@ export class UserController {
 
     public create = async (req: Request, res: Response) => {
         const user = req['body'] as UserEntity;
+        console.log(user.mot_de_passe_uti);
+
         user.date_creation_uti = new Date;
         user.compte_actif_uti = false;
-        console.log(user);
+        const passwordHash = await bcrypt.hash(user.mot_de_passe_uti, 10);
+        user.mot_de_passe_uti = passwordHash;
         const newUser = await this.userService.create(user);
         res.send(newUser); // Execute the method of service
     }
