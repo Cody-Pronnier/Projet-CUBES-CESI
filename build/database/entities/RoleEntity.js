@@ -19,11 +19,11 @@ var RoleEntity = /** @class */ (function () {
         __metadata("design:type", Number)
     ], RoleEntity.prototype, "id_rol", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], RoleEntity.prototype, "nom_rol", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ nullable: true }),
+        (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], RoleEntity.prototype, "trigramme_rol", void 0);
     RoleEntity = __decorate([

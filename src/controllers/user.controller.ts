@@ -33,7 +33,6 @@ export class UserController {
     public update = async (req: Request, res: Response) => {
         const user = req['body'] as UserEntity;
         const id = req['params']['id'];
-
         res.send(this.userService.update(user, Number(id)));  // Execute the method of service
 
 
@@ -42,7 +41,6 @@ export class UserController {
     public delete = async (req: Request, res: Response) => {
         const id = req['params']['id'];
         res.send(this.userService.delete(Number(id)));  // Execute the method of service
-
     }
 
     /**
