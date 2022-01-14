@@ -1,7 +1,8 @@
 import { Router, Response, Request } from "express";
+import { getMaxListeners } from "process";
 import { UserEntity } from "../database/entities/UserEntity";
 import { UserService } from "../services/user.service";
-
+var bcrypt = require('bcrypt');
 
 export class UserController {
     public router: Router;
@@ -19,10 +20,15 @@ export class UserController {
     }
 
     public create = async (req: Request, res: Response) => {
+      
        const user = req['body'] as UserEntity;
+        const passwordHash = await bcrypt.crypt.hash(user.mot_de_passe_uti, 10);
+        user.mot_de_passe_uti = passwordHash;
        const newUser = await this.userService.create(user);
        res.send(newUser); // Execute the method of service
     }
+
+
 
     public update = async (req: Request, res: Response) => {
         const user = req['body'] as UserEntity;
