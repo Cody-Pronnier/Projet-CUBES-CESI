@@ -8,4 +8,5 @@
     "entities": ["build/database/entities/**/*.js"],
     "synchronize": true,
     "name": "projetCUBES"
+    
 }
