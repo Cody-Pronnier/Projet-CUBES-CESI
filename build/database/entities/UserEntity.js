@@ -62,7 +62,7 @@ var UserEntity = /** @class */ (function () {
             type: "bytea",
         }),
         __metadata("design:type", Uint8Array)
-    ], UserEntity.prototype, "image", void 0);
+    ], UserEntity.prototype, "avatar", void 0);
     __decorate([
         (0, typeorm_1.OneToMany)(function () { return RessourceEntity_1.RessourceEntity; }, function (ressource) { return ressource.utilisateur; }),
         __metadata("design:type", Array)

@@ -36,7 +36,17 @@ class Server {
      * Method to configure the routes
      */
      public async routes() {
-        await createConnection();
+        await createConnection({
+            type: "postgres",
+            host: "postgresql-cubes.alwaysdata.net",
+            port: 5433,
+            username: "cubes",
+            password: "15342679",
+            database: "cubes_reseau_social",
+            entities: ["build/database/entities/**/*.js"],
+            synchronize: true,
+            name: "projetCUBES"
+        });
 
         this.userController = new UserController();
         this.roleController = new RoleController();
