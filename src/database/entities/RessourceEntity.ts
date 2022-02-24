@@ -1,5 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
 import {UserEntity} from "./UserEntity"
+import { CommentaireEntity } from "./CommentaireEntity"
 
 @Entity()
 export class RessourceEntity {
@@ -27,4 +28,7 @@ export class RessourceEntity {
 
     @ManyToOne(() => UserEntity, utilisateur => utilisateur.ressources)
     utilisateur: UserEntity;
+
+    @OneToMany(() => CommentaireEntity, commentaire => commentaire.ressource)
+    commentaires: CommentaireEntity[];
 }

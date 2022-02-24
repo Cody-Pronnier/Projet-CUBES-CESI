@@ -29,6 +29,11 @@ export class UserEntity {
     @Column()
     pseudo: string;
 
+    @Column()
+    avatar: Blob;
+
+    
+
     @OneToMany(() => RessourceEntity, ressource => ressource.utilisateur)
     ressources: RessourceEntity[];
 

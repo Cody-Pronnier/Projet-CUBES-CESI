@@ -1,5 +1,4 @@
 import { Router, Response, Request } from "express";
-import { getMaxListeners } from "process";
 import { UserEntity } from "../database/entities/UserEntity";
 import { UserService } from "../services/user.service";
 
