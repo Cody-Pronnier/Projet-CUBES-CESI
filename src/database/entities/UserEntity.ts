@@ -30,7 +30,7 @@ export class UserEntity {
   mot_de_passe: string;
 
   @Column()
-  date_creation: Date = new Date();
+  date_creation: Date;
 
   @Column()
   compte_actif: boolean;

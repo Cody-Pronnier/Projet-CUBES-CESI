@@ -87,6 +87,17 @@ var UserService = /** @class */ (function () {
                 }
             });
         }); };
+        this.getUserById = function (id) { return __awaiter(_this, void 0, void 0, function () {
+            var userById;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.userRepository.findOne(id)];
+                    case 1:
+                        userById = _a.sent();
+                        return [2 /*return*/, userById];
+                }
+            });
+        }); };
         this.userRepository = (0, typeorm_1.getConnection)('projetCUBES').getCustomRepository(user_repository_1.UserRepository);
     }
     return UserService;

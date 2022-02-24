@@ -2,6 +2,7 @@ import { getConnection } from 'typeorm';
 import { UserEntity } from '../database/entities/UserEntity';
 import { UserRepository } from '../repository/user.repository';
 
+
 export class UserService {
     private userRepository: UserRepository;
 
@@ -29,4 +30,10 @@ export class UserService {
         const deletedUser = await this.userRepository.delete(id);
         return deletedUser;
     }
+
+    public getUserById = async (id: number) => {
+        const userById = await this.userRepository.findOne(id);
+        return userById;
+    }
+
 }

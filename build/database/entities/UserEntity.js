@@ -17,13 +17,6 @@ var RessourceEntity_1 = require("./RessourceEntity");
 var RoleEntity_1 = require("./RoleEntity");
 var UserEntity = /** @class */ (function () {
     function UserEntity() {
-        this.date_creation = new Date();
-        // @ManyToMany(() => AbonneEntity)
-        // @JoinTable()
-        // abonneentities: AbonneEntity[];
-        // @ManyToMany(() => AbonnementEntity)
-        // @JoinTable()
-        // abonnemententities: AbonnementEntity[];
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
