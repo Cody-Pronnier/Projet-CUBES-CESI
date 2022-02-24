@@ -7,7 +7,7 @@
     "tsc": "tsc ",
     "start": "node ./build/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typeorm": "./node_modules/.bin/typeorm " 
+    "typeorm": "./node_modules/.bin/typeorm "
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "pg": "^8.7.1",
     "typeorm": "^0.2.41"
   }

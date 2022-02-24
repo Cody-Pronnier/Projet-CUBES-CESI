@@ -1,5 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-
+import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable } from "typeorm";
+import {UserEntity} from "./UserEntity"
 @Entity('role')
 export class RoleEntity {
     @PrimaryGeneratedColumn()
@@ -10,4 +10,8 @@ export class RoleEntity {
 
     @Column()
     trigramme: string;
+
+    @ManyToMany(() => UserEntity)
+    @JoinTable()
+    userentities: UserEntity[];
 }
