@@ -2,6 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn, OneToMany,  ManyToMany, JoinTab
 import {RessourceEntity} from "./RessourceEntity"
 import {RoleEntity} from "./RoleEntity"
 import {AbonneEntity} from "./AbonneEntity"
+import {AbonnementEntity} from "./AbonnementEntity"
 
 @Entity()
 export class UserEntity {
@@ -44,6 +45,10 @@ export class UserEntity {
     @ManyToMany(() => AbonneEntity)
     @JoinTable()
     abonneentities: AbonneEntity[];
+
+    @ManyToMany(() => AbonnementEntity)
+    @JoinTable()
+    abonnemententities: AbonnementEntity[];
 
 
 }
