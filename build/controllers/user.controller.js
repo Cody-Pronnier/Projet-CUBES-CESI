@@ -60,6 +60,9 @@ var UserController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         user = req['body'];
+                        console.log(user.mot_de_passe_uti);
+                        user.date_creation_uti = new Date;
+                        user.compte_actif_uti = false;
                         return [4 /*yield*/, this.userService.create(user)];
                     case 1:
                         newUser = _a.sent();

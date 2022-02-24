@@ -1,28 +1,40 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany,  ManyToMany, JoinTable } from "typeorm";
+import {RessourceEntity} from "./RessourceEntity"
+import {RoleEntity} from "./RoleEntity"
 
-@Entity('utilisateur')
+@Entity()
 export class UserEntity {
+    
     @PrimaryGeneratedColumn()
-    id_uti: number;
+    id: number;
 
     @Column()
-    nom_uti: string;
+    nom: string;
 
     @Column()
-    prenom_uti: string;
+    prenom: string;
 
     @Column()
-    mail_uti: string;
+    mail: string;
 
     @Column()
-    mot_de_passe_uti: string;
+    mot_de_passe: string;
 
     @Column()
-    date_creation_uti: Date;
+    date_creation: Date = new Date();
 
     @Column()
-    compte_actif_uti: boolean;
+    compte_actif: boolean;
 
     @Column()
-    pseudo_uti: string;
+    pseudo: string;
+
+    @OneToMany(() => RessourceEntity, ressource => ressource.utilisateur)
+    ressources: RessourceEntity[];
+
+    @ManyToMany(() => RoleEntity)
+    @JoinTable()
+    roleentities: RoleEntity[];
+
+
 }
