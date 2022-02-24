@@ -41,7 +41,7 @@ export class UserEntity {
   @Column({
     type: "bytea",
   })
-  image: Uint8Array;
+  avatar: Uint8Array;
 
   @OneToMany(() => RessourceEntity, (ressource) => ressource.utilisateur)
   ressources: RessourceEntity[];
