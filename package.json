@@ -1,7 +1,7 @@
 {
   "name": "projetcubes-api",
   "version": "1.0.0",
-  "description": "Projet CUBES-api with Noé , Cody, Paul",
+  "description": "Projet CUBES-api with Noé , Cody, Paul, Alex",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc ",
