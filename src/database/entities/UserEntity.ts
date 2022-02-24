@@ -1,8 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany,  ManyToMany, JoinTable } from "typeorm";
+import { AbonnementEntity } from "../AbonnementEntity";
 import {RessourceEntity} from "./RessourceEntity"
 import {RoleEntity} from "./RoleEntity"
 import {AbonneEntity} from "./AbonneEntity"
-import {AbonnementEntity} from "./AbonnementEntity"
+
 
 @Entity()
 export class UserEntity {
@@ -33,7 +34,6 @@ export class UserEntity {
 
     @Column()
     avatar: Blob;
-
 
     @OneToMany(() => RessourceEntity, ressource => ressource.utilisateur)
     ressources: RessourceEntity[];
