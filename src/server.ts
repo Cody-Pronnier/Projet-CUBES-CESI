@@ -35,8 +35,8 @@ class Server {
     /**
      * Method to configure the routes
      */
-    public async routes() {
-        const connection = await createConnection();
+     public async routes() {
+        await createConnection();
 
         this.userController = new UserController();
         this.roleController = new RoleController();

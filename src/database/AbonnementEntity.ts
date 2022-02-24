@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn } from "typeorm";
+// import { Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
-export class AbonnementEntity {
+// @Entity()
+// export class AbonnementEntity {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+//     @PrimaryGeneratedColumn()
+//     id: number;
 
-}
+// }

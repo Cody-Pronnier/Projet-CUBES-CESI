@@ -1,54 +1,60 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany,  ManyToMany, JoinTable } from "typeorm";
-import { AbonnementEntity } from "../AbonnementEntity";
-import {RessourceEntity} from "./RessourceEntity"
-import {RoleEntity} from "./RoleEntity"
-import {AbonneEntity} from "./AbonneEntity"
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToMany,
+  JoinTable,
+} from "typeorm";
+// import { AbonneEntity } from "./AbonneEntity";
+// import { AbonnementEntity } from "../AbonnementEntity";
+import { RessourceEntity } from "./RessourceEntity";
+import { RoleEntity } from "./RoleEntity";
 
 
 @Entity()
 export class UserEntity {
-    
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    nom: string;
+  @Column()
+  nom: string;
 
-    @Column()
-    prenom: string;
+  @Column()
+  prenom: string;
 
-    @Column()
-    mail: string;
+  @Column()
+  mail: string;
 
-    @Column()
-    mot_de_passe: string;
+  @Column()
+  mot_de_passe: string;
 
-    @Column()
-    date_creation: Date = new Date();
+  @Column()
+  date_creation: Date = new Date();
 
-    @Column()
-    compte_actif: boolean;
+  @Column()
+  compte_actif: boolean;
 
-    @Column()
-    pseudo: string;
+  @Column()
+  pseudo: string;
 
-    @Column()
-    avatar: Blob;
+  @Column({
+    type: "bytea",
+  })
+  image: Uint8Array;
 
-    @OneToMany(() => RessourceEntity, ressource => ressource.utilisateur)
-    ressources: RessourceEntity[];
+  @OneToMany(() => RessourceEntity, (ressource) => ressource.utilisateur)
+  ressources: RessourceEntity[];
 
-    @ManyToMany(() => RoleEntity)
-    @JoinTable()
-    roleentities: RoleEntity[];
+  @ManyToMany(() => RoleEntity)
+  @JoinTable()
+  roleentities: RoleEntity[];
 
-    @ManyToMany(() => AbonneEntity)
-    @JoinTable()
-    abonneentities: AbonneEntity[];
+  // @ManyToMany(() => AbonneEntity)
+  // @JoinTable()
+  // abonneentities: AbonneEntity[];
 
-    @ManyToMany(() => AbonnementEntity)
-    @JoinTable()
-    abonnemententities: AbonnementEntity[];
-
-
+  // @ManyToMany(() => AbonnementEntity)
+  // @JoinTable()
+  // abonnemententities: AbonnementEntity[];
 }

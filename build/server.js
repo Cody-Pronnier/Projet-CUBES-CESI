@@ -49,7 +49,8 @@ var corsOptions = {
 };
 var Server = /** @class */ (function () {
     function Server() {
-        this.app = (0, express_1.default)(); // init the application
+        //On initialise express pour l'app
+        this.app = (0, express_1.default)();
         this.configuration();
         this.routes();
     }

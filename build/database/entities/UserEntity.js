@@ -11,43 +11,69 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserEntity = void 0;
 var typeorm_1 = require("typeorm");
+// import { AbonneEntity } from "./AbonneEntity";
+// import { AbonnementEntity } from "../AbonnementEntity";
+var RessourceEntity_1 = require("./RessourceEntity");
+var RoleEntity_1 = require("./RoleEntity");
 var UserEntity = /** @class */ (function () {
     function UserEntity() {
+        this.date_creation = new Date();
+        // @ManyToMany(() => AbonneEntity)
+        // @JoinTable()
+        // abonneentities: AbonneEntity[];
+        // @ManyToMany(() => AbonnementEntity)
+        // @JoinTable()
+        // abonnemententities: AbonnementEntity[];
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
         __metadata("design:type", Number)
-    ], UserEntity.prototype, "id_uti", void 0);
+    ], UserEntity.prototype, "id", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "nom_uti", void 0);
+    ], UserEntity.prototype, "nom", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "prenom_uti", void 0);
+    ], UserEntity.prototype, "prenom", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "mail_uti", void 0);
+    ], UserEntity.prototype, "mail", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "mot_de_passe_uti", void 0);
+    ], UserEntity.prototype, "mot_de_passe", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", Date)
-    ], UserEntity.prototype, "date_creation_uti", void 0);
+    ], UserEntity.prototype, "date_creation", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", Boolean)
-    ], UserEntity.prototype, "compte_actif_uti", void 0);
+    ], UserEntity.prototype, "compte_actif", void 0);
     __decorate([
         (0, typeorm_1.Column)(),
         __metadata("design:type", String)
-    ], UserEntity.prototype, "pseudo_uti", void 0);
+    ], UserEntity.prototype, "pseudo", void 0);
+    __decorate([
+        (0, typeorm_1.Column)({
+            type: "bytea",
+        }),
+        __metadata("design:type", Uint8Array)
+    ], UserEntity.prototype, "image", void 0);
+    __decorate([
+        (0, typeorm_1.OneToMany)(function () { return RessourceEntity_1.RessourceEntity; }, function (ressource) { return ressource.utilisateur; }),
+        __metadata("design:type", Array)
+    ], UserEntity.prototype, "ressources", void 0);
+    __decorate([
+        (0, typeorm_1.ManyToMany)(function () { return RoleEntity_1.RoleEntity; }),
+        (0, typeorm_1.JoinTable)(),
+        __metadata("design:type", Array)
+    ], UserEntity.prototype, "roleentities", void 0);
     UserEntity = __decorate([
-        (0, typeorm_1.Entity)('utilisateur')
+        (0, typeorm_1.Entity)()
     ], UserEntity);
     return UserEntity;
 }());

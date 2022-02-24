@@ -39,7 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 var express_1 = require("express");
 var user_service_1 = require("../services/user.service");
-var bcrypt = require('bcrypt');
 var UserController = /** @class */ (function () {
     function UserController() {
         var _this = this;
@@ -56,20 +55,14 @@ var UserController = /** @class */ (function () {
             });
         }); };
         this.create = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var user, passwordHash, newUser;
+            var user, newUser;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         user = req['body'];
-                        console.log(user.mot_de_passe_uti);
-                        user.date_creation_uti = new Date;
-                        user.compte_actif_uti = false;
+                        user.compte_actif = false;
                         return [4 /*yield*/, this.userService.create(user)];
                     case 1:
-                        passwordHash = _a.sent();
-                        user.mot_de_passe_uti = passwordHash;
-                        return [4 /*yield*/, this.userService.create(user)];
-                    case 2:
                         newUser = _a.sent();
                         res.send(newUser); // Execute the method of service
                         return [2 /*return*/];
