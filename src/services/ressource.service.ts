@@ -29,4 +29,5 @@ export class RessourceService {
         const deletedRessource = await this.ressourceRepository.delete(id);
         return deletedRessource;
     }
+
 }

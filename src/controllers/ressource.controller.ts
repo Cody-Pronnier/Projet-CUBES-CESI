@@ -39,7 +39,7 @@ export class RessourceController {
         res.send(this.ressourceService.delete(Number(id)));  // Execute the method of service
 
     }
-
+        // E
     /**
      * Configure the routes of controller
      */

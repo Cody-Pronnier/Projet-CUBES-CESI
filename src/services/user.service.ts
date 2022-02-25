@@ -39,5 +39,4 @@ export class UserService {
           }
           return userById;
     }
-
 }

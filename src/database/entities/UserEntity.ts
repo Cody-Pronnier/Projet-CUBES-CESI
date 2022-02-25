@@ -23,7 +23,13 @@ export class UserEntity {
   @Column()
   prenom: string;
 
-  @Column()
+
+  @Column({
+    type: "varchar",
+    length: 150,
+    unique: true,
+    // ...
+  })
   mail: string;
 
   @Column()

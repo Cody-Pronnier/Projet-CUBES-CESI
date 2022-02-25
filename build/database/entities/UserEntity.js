@@ -31,7 +31,12 @@ var UserEntity = /** @class */ (function () {
         __metadata("design:type", String)
     ], UserEntity.prototype, "prenom", void 0);
     __decorate([
-        (0, typeorm_1.Column)(),
+        (0, typeorm_1.Column)({
+            type: "varchar",
+            length: 150,
+            unique: true,
+            // ...
+        }),
         __metadata("design:type", String)
     ], UserEntity.prototype, "mail", void 0);
     __decorate([

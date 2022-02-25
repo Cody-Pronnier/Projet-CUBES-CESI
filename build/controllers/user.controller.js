@@ -40,6 +40,8 @@ exports.UserController = void 0;
 var express_1 = require("express");
 var user_service_1 = require("../services/user.service");
 var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
+var SECRET_KEY = process.env.SECRET_KEY;
 var UserController = /** @class */ (function () {
     function UserController() {
         var _this = this;
@@ -63,11 +65,9 @@ var UserController = /** @class */ (function () {
                         user = req['body'];
                         user.compte_actif = false;
                         user.date_creation = new Date();
-                        console.log(user.mot_de_passe);
                         salt = bcrypt.genSaltSync(10);
                         hash = bcrypt.hashSync(user.mot_de_passe, salt);
                         user.mot_de_passe = hash;
-                        console.log(user.mot_de_passe);
                         return [4 /*yield*/, this.userService.create(user)];
                     case 1:
                         newUser = _a.sent();
@@ -114,19 +114,46 @@ var UserController = /** @class */ (function () {
                 }
             });
         }); };
+        this.auth = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var id, user, response, salt, hash, salt2, hash2, mail;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        id = req['params']['id'];
+                        user = req['body'];
+                        return [4 /*yield*/, this.userService.getUserById(Number(id))];
+                    case 1:
+                        response = _a.sent();
+                        salt = bcrypt.genSaltSync(10);
+                        hash = bcrypt.hashSync(user.mot_de_passe, salt);
+                        salt2 = bcrypt.genSaltSync(10);
+                        hash2 = bcrypt.hashSync("TESTNUMERO7", salt);
+                        mail = "TESTNUMERO7@test.com";
+                        if ((hash === hash2) && (user.mail === mail)) {
+                            console.log("GG C'EST LE MEME MOT DE PASSE DYLAN JE TE FILE TON TOKEN JWT");
+                        }
+                        else {
+                            console.log("T'ES AUSSI CON QU'ALEX MA PAROLE");
+                        }
+                        res.send(response);
+                        return [2 /*return*/];
+                }
+            });
+        }); };
         this.router = (0, express_1.Router)();
         this.userService = new user_service_1.UserService(); //Create a new instance of UserController
         this.routes();
     }
     /**
-     * Configure the routes of controller
-     */
+ * Configure the routes of controller
+ */
     UserController.prototype.routes = function () {
         this.router.get('/', this.index);
         this.router.post('/', this.create);
         this.router.put('/:id', this.update);
         this.router.delete('/:id', this.delete);
         this.router.get('/:id', this.getUserById);
+        this.router.get('/test/:id', this.auth);
     };
     return UserController;
 }());
