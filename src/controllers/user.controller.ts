@@ -1,4 +1,4 @@
-import { Router, Response, Request } from "express";
+import { Router, Response, Request, response } from "express";
 import { UserEntity } from "../database/entities/UserEntity";
 import { UserService } from "../services/user.service";
 
@@ -45,8 +45,10 @@ export class UserController {
 
     public getUserById = async (req: Request, res: Response) => {
         const id = req['params']['id'];
-        res.send(this.userService.getUserById(Number(id)));
+        const response = await this.userService.getUserById(Number(id));
+        res.send(response);
     }
+    
 
     /**
      * Configure the routes of controller
@@ -56,7 +58,7 @@ export class UserController {
         this.router.post('/', this.create);
         this.router.put('/:id', this.update);
         this.router.delete('/:id', this.delete);
-        this.router.get('/utilisateur/:id', this.getUserById);
+        this.router.get('/:id', this.getUserById);
 
     }
 }

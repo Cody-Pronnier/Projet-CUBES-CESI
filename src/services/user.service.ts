@@ -31,6 +31,7 @@ export class UserService {
         return deletedUser;
     }
 
+    
     public getUserById = async (id: number) => {
         const userById = await this.userRepository.findOne(id);
         if (!userById) {
