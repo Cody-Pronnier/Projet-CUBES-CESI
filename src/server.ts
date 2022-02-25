@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { UserController } from './controllers/user.controller'; // import the post controller
 import { RoleController } from './controllers/role.controller';
 import { createConnection, Connection } from "typeorm";
+import {UserEntity} from "./database/entities/UserEntity";
 
 
 const cors = require('cors');
@@ -57,6 +58,9 @@ class Server {
         
         this.app.use(`/api/utilisateur/`, cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
         this.app.use(`/api/role/`, cors(corsOptions), this.roleController.router); // Configure the new routes of the controller user
+        this.app.use(`/api/utilisateur/:id`, cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
+
+
     }
 
     /**

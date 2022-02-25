@@ -49,7 +49,6 @@ var UserService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.userRepository.find()];
                     case 1:
                         users = _a.sent();
-                        console.log(users);
                         return [2 /*return*/, users];
                 }
             });
@@ -84,6 +83,17 @@ var UserService = /** @class */ (function () {
                     case 1:
                         deletedUser = _a.sent();
                         return [2 /*return*/, deletedUser];
+                }
+            });
+        }); };
+        this.getUserById = function (id) { return __awaiter(_this, void 0, void 0, function () {
+            var userById;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.userRepository.findOne(id)];
+                    case 1:
+                        userById = _a.sent();
+                        return [2 /*return*/, userById];
                 }
             });
         }); };

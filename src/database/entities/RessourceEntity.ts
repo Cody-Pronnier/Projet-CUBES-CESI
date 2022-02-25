@@ -2,7 +2,7 @@ import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "type
 import {UserEntity} from "./UserEntity"
 import { CommentaireEntity } from "./CommentaireEntity"
 
-@Entity()
+@Entity('ressource')
 export class RessourceEntity {
 
     @PrimaryGeneratedColumn()
@@ -20,11 +20,15 @@ export class RessourceEntity {
     @Column()
     texte: string;
 
-    @Column()
-    image: string;
+    @Column({
+        type: "bytea",
+      })
+      image: Uint8Array;
 
-    @Column()
-    audio: string;
+    @Column({
+        type: "bytea",
+      })
+      audio: Uint8Array;
 
     @ManyToOne(() => UserEntity, utilisateur => utilisateur.ressources)
     utilisateur: UserEntity;

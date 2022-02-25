@@ -12,7 +12,7 @@ import { RessourceEntity } from "./RessourceEntity";
 import { RoleEntity } from "./RoleEntity";
 
 
-@Entity()
+@Entity('utilisateur')
 export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -30,7 +30,7 @@ export class UserEntity {
   mot_de_passe: string;
 
   @Column()
-  date_creation: Date = new Date();
+  date_creation: Date;
 
   @Column()
   compte_actif: boolean;

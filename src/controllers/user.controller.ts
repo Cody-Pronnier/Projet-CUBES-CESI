@@ -2,6 +2,7 @@ import { Router, Response, Request } from "express";
 import { UserEntity } from "../database/entities/UserEntity";
 import { UserService } from "../services/user.service";
 
+
 export class UserController {
     public router: Router;
     private userService: UserService;
@@ -12,6 +13,8 @@ export class UserController {
         this.routes();
     }
 
+    
+
     public index = async (req: Request, res: Response) => {
         const users = await this.userService.index();
         res.send(users).json(); // Execute the method of service
@@ -20,6 +23,7 @@ export class UserController {
     public create = async (req: Request, res: Response) => {
         const user = req['body'] as UserEntity;
         user.compte_actif = false;
+        user.date_creation = new Date();
         const newUser = await this.userService.create(user);
         res.send(newUser); // Execute the method of service
     }
@@ -39,6 +43,11 @@ export class UserController {
         res.send(this.userService.delete(Number(id)));  // Execute the method of service
     }
 
+    public getUserById = async (req: Request, res: Response) => {
+        const id = req['params']['id'];
+        res.send(this.userService.getUserById(Number(id)));
+    }
+
     /**
      * Configure the routes of controller
      */
@@ -47,5 +56,7 @@ export class UserController {
         this.router.post('/', this.create);
         this.router.put('/:id', this.update);
         this.router.delete('/:id', this.delete);
+        this.router.get('/utilisateur/:id', this.getUserById);
+
     }
 }

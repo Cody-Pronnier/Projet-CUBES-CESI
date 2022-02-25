@@ -61,6 +61,7 @@ var UserController = /** @class */ (function () {
                     case 0:
                         user = req['body'];
                         user.compte_actif = false;
+                        user.date_creation = new Date();
                         return [4 /*yield*/, this.userService.create(user)];
                     case 1:
                         newUser = _a.sent();
@@ -86,6 +87,14 @@ var UserController = /** @class */ (function () {
                 return [2 /*return*/];
             });
         }); };
+        this.getUserById = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var id;
+            return __generator(this, function (_a) {
+                id = req['params']['id'];
+                res.send(this.userService.getUserById(Number(id)));
+                return [2 /*return*/];
+            });
+        }); };
         this.router = (0, express_1.Router)();
         this.userService = new user_service_1.UserService(); //Create a new instance of UserController
         this.routes();
@@ -98,6 +107,7 @@ var UserController = /** @class */ (function () {
         this.router.post('/', this.create);
         this.router.put('/:id', this.update);
         this.router.delete('/:id', this.delete);
+        this.router.get('/utilisateur/:id', this.getUserById);
     };
     return UserController;
 }());

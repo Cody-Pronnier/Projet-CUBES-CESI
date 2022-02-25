@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
 import {RessourceEntity} from "./RessourceEntity"
 
-@Entity()
+@Entity('commentaire')
 export class CommentaireEntity {
 
     @PrimaryGeneratedColumn()
