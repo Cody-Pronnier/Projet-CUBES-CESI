@@ -20,11 +20,15 @@ export class RessourceEntity {
     @Column()
     texte: string;
 
-    @Column()
-    image: string;
+    @Column({
+        type: "bytea",
+      })
+      image: Uint8Array;
 
-    @Column()
-    audio: string;
+    @Column({
+        type: "bytea",
+      })
+      audio: Uint8Array;
 
     @ManyToOne(() => UserEntity, utilisateur => utilisateur.ressources)
     utilisateur: UserEntity;
