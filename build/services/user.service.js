@@ -93,6 +93,10 @@ var UserService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.userRepository.findOne(id)];
                     case 1:
                         userById = _a.sent();
+                        if (!userById) {
+                            throw new Error("Erreur d'id d'utilisateur");
+                            ;
+                        }
                         return [2 /*return*/, userById];
                 }
             });
