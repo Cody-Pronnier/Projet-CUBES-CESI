@@ -46,6 +46,7 @@ var ressource_controller_1 = require("./controllers/ressource.controller");
 var typeorm_1 = require("typeorm");
 var commentaire_controller_1 = require("./controllers/commentaire.controller");
 var abonnement_controller_1 = require("./controllers/abonnement.controller");
+var abonne_controller_1 = require("./controllers/abonne.controller");
 var cors = require('cors');
 var corsOptions = {
     origin: 'http://localhost:3005',
@@ -89,6 +90,7 @@ var Server = /** @class */ (function () {
                         this.ressourceController = new ressource_controller_1.RessourceController();
                         this.commentaireController = new commentaire_controller_1.CommentaireController();
                         this.abonnementController = new abonnement_controller_1.AbonnementController();
+                        this.abonneController = new abonne_controller_1.AbonneController();
                         //--------------------------Routes------------------------//
                         this.app.get("/", cors(corsOptions), function (req, res) {
                             res.send("Hello world!");
@@ -99,6 +101,7 @@ var Server = /** @class */ (function () {
                         this.app.use("/api/ressource/", cors(corsOptions), this.ressourceController.router); // Configure the new routes of the controller ressource
                         this.app.use("/api/commentaire/", cors(corsOptions), this.commentaireController.router); // Configure the new routes of the controller commentaire
                         this.app.use("/api/abonnement/", cors(corsOptions), this.abonnementController.router); // Configure the new routes of the controller abonnement
+                        this.app.use("/api/abonne/", cors(corsOptions), this.abonneController.router); // Configure the new routes of the controller abonne
                         return [2 /*return*/];
                 }
             });
