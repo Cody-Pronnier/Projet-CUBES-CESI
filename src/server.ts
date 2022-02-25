@@ -67,7 +67,7 @@ class Server {
         });
         this.app.use(`/api/utilisateur/`, cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
         this.app.use(`/api/role/`, cors(corsOptions), this.roleController.router); // Configure the new routes of the controller user
-        this.app.use(`/api/utilisateur/:id`, cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
+        // Configure the new routes of the controller user
         this.app.use(`/api/ressource/`, cors(corsOptions), this.ressourceController.router); // Configure the new routes of the controller ressource
         this.app.use(`/api/commentaire/`, cors(corsOptions), this.commentaireController.router); // Configure the new routes of the controller commentaire
         this.app.use(`/api/abonnement/`, cors(corsOptions), this.abonnementController.router); // Configure the new routes of the controller abonnement

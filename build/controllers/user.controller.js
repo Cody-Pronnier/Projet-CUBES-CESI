@@ -90,9 +90,13 @@ var UserController = /** @class */ (function () {
         this.getUserById = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             var id;
             return __generator(this, function (_a) {
-                id = req['params']['id'];
-                res.send(this.userService.getUserById(Number(id)));
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.userService.index()];
+                    case 1:
+                        id = _a.sent();
+                        res.send(this.userService.getUserById(Number(id)));
+                        return [2 /*return*/];
+                }
             });
         }); };
         this.router = (0, express_1.Router)();
