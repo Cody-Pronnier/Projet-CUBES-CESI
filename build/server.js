@@ -42,7 +42,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var user_controller_1 = require("./controllers/user.controller"); // import the post controller
 var role_controller_1 = require("./controllers/role.controller");
+var ressource_controller_1 = require("./controllers/ressource.controller");
 var typeorm_1 = require("typeorm");
+var commentaire_controller_1 = require("./controllers/commentaire.controller");
+var abonnement_controller_1 = require("./controllers/abonnement.controller");
 var cors = require('cors');
 var corsOptions = {
     origin: 'http://localhost:3005',
@@ -83,12 +86,19 @@ var Server = /** @class */ (function () {
                         _a.sent();
                         this.userController = new user_controller_1.UserController();
                         this.roleController = new role_controller_1.RoleController();
+                        this.ressourceController = new ressource_controller_1.RessourceController();
+                        this.commentaireController = new commentaire_controller_1.CommentaireController();
+                        this.abonnementController = new abonnement_controller_1.AbonnementController();
+                        //--------------------------Routes------------------------//
                         this.app.get("/", cors(corsOptions), function (req, res) {
                             res.send("Hello world!");
                         });
                         this.app.use("/api/utilisateur/", cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
                         this.app.use("/api/role/", cors(corsOptions), this.roleController.router); // Configure the new routes of the controller user
                         this.app.use("/api/utilisateur/:id", cors(corsOptions), this.userController.router); // Configure the new routes of the controller user
+                        this.app.use("/api/ressource/", cors(corsOptions), this.ressourceController.router); // Configure the new routes of the controller ressource
+                        this.app.use("/api/commentaire/", cors(corsOptions), this.commentaireController.router); // Configure the new routes of the controller commentaire
+                        this.app.use("/api/abonnement/", cors(corsOptions), this.abonnementController.router); // Configure the new routes of the controller abonnement
                         return [2 /*return*/];
                 }
             });
