@@ -1,6 +1,7 @@
 import { Router, Response, Request, response } from "express";
 import { UserEntity } from "../database/entities/UserEntity";
 import { UserService } from "../services/user.service";
+var bcrypt = require('bcryptjs');
 
 
 export class UserController {
@@ -13,7 +14,7 @@ export class UserController {
         this.routes();
     }
 
-    
+
 
     public index = async (req: Request, res: Response) => {
         const users = await this.userService.index();
@@ -24,6 +25,9 @@ export class UserController {
         const user = req['body'] as UserEntity;
         user.compte_actif = false;
         user.date_creation = new Date();
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync(user.mot_de_passe, salt);
+        user.mot_de_passe = hash;
         const newUser = await this.userService.create(user);
         res.send(newUser); // Execute the method of service
     }
@@ -45,10 +49,15 @@ export class UserController {
 
     public getUserById = async (req: Request, res: Response) => {
         const id = req['params']['id'];
-        const response = await this.userService.getUserById(Number(id));
-        res.send(response);
+        try {
+            const response = await this.userService.getUserById(Number(id))
+            res.send(response);
+        }
+        catch (e) {
+            throw new Error('Erreur du temps de requête');
+        }
     }
-    
+
 
     /**
      * Configure the routes of controller

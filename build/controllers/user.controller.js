@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 var express_1 = require("express");
 var user_service_1 = require("../services/user.service");
+var bcrypt = require('bcryptjs');
 var UserController = /** @class */ (function () {
     function UserController() {
         var _this = this;
@@ -55,13 +56,18 @@ var UserController = /** @class */ (function () {
             });
         }); };
         this.create = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var user, newUser;
+            var user, salt, hash, newUser;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         user = req['body'];
                         user.compte_actif = false;
                         user.date_creation = new Date();
+                        console.log(user.mot_de_passe);
+                        salt = bcrypt.genSaltSync(10);
+                        hash = bcrypt.hashSync(user.mot_de_passe, salt);
+                        user.mot_de_passe = hash;
+                        console.log(user.mot_de_passe);
                         return [4 /*yield*/, this.userService.create(user)];
                     case 1:
                         newUser = _a.sent();
@@ -88,16 +94,23 @@ var UserController = /** @class */ (function () {
             });
         }); };
         this.getUserById = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var id, response;
+            var id, response_1, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         id = req['params']['id'];
-                        return [4 /*yield*/, this.userService.getUserById(Number(id))];
+                        _a.label = 1;
                     case 1:
-                        response = _a.sent();
-                        res.send(response);
-                        return [2 /*return*/];
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.userService.getUserById(Number(id))];
+                    case 2:
+                        response_1 = _a.sent();
+                        res.send(response_1);
+                        return [3 /*break*/, 4];
+                    case 3:
+                        e_1 = _a.sent();
+                        throw new Error('Erreur du temps de requête');
+                    case 4: return [2 /*return*/];
                 }
             });
         }); };
