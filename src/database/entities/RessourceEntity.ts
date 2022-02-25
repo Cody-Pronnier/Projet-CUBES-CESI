@@ -2,7 +2,7 @@ import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "type
 import {UserEntity} from "./UserEntity"
 import { CommentaireEntity } from "./CommentaireEntity"
 
-@Entity()
+@Entity('ressource')
 export class RessourceEntity {
 
     @PrimaryGeneratedColumn()

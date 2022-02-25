@@ -66,7 +66,7 @@ var UserEntity = /** @class */ (function () {
         __metadata("design:type", Array)
     ], UserEntity.prototype, "roleentities", void 0);
     UserEntity = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)('utilisateur')
     ], UserEntity);
     return UserEntity;
 }());

@@ -49,7 +49,6 @@ var UserService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.userRepository.find()];
                     case 1:
                         users = _a.sent();
-                        console.log(users);
                         return [2 /*return*/, users];
                 }
             });

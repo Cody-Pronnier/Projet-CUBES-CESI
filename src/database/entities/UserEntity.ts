@@ -12,7 +12,7 @@ import { RessourceEntity } from "./RessourceEntity";
 import { RoleEntity } from "./RoleEntity";
 
 
-@Entity()
+@Entity('utilisateur')
 export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
