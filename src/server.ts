@@ -5,6 +5,7 @@ import { RessourceController } from './controllers/ressource.controller';
 import { createConnection } from "typeorm";
 import { CommentaireController } from './controllers/commentaire.controller';
 import { AbonnementController } from './controllers/abonnement.controller';
+import { AbonneController } from './controllers/abonne.controller';
 
 
 const cors = require('cors');
@@ -18,6 +19,7 @@ class Server {
     private ressourceController: RessourceController;
     private commentaireController: CommentaireController;
     private abonnementController: AbonnementController;
+    private abonneController: AbonneController;
 
     private app: express.Application;
 
@@ -60,6 +62,7 @@ class Server {
         this.ressourceController = new RessourceController();
         this.commentaireController = new CommentaireController();
         this.abonnementController = new AbonnementController();
+        this.abonneController = new AbonneController();
 
         //--------------------------Routes------------------------//
         this.app.get("/", cors(corsOptions), (req: Request, res: Response) => {
@@ -71,6 +74,7 @@ class Server {
         this.app.use(`/api/ressource/`, cors(corsOptions), this.ressourceController.router); // Configure the new routes of the controller ressource
         this.app.use(`/api/commentaire/`, cors(corsOptions), this.commentaireController.router); // Configure the new routes of the controller commentaire
         this.app.use(`/api/abonnement/`, cors(corsOptions), this.abonnementController.router); // Configure the new routes of the controller abonnement
+         this.app.use(`/api/abonne/`, cors(corsOptions), this.abonneController.router); // Configure the new routes of the controller abonne
 
     }
 
