@@ -33,7 +33,10 @@ export class UserService {
 
     public getUserById = async (id: number) => {
         const userById = await this.userRepository.findOne(id);
-        return userById;
+        if (!userById) {
+            throw new Error("Erreur d'id d'utilisateur");;
+          }
+          return userById;
     }
 
 }
