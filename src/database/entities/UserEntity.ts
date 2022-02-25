@@ -29,9 +29,9 @@ export class UserEntity {
   @Column()
   mot_de_passe: string;
 
-  @Column()
-  salt: string;
-  
+  // @Column()
+  // salt: string;
+
   @Column()
   date_creation: Date;
 
