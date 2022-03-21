@@ -1,10 +1,11 @@
 import { Router, Response, Request, response } from "express";
+import { createConnection, getConnection, getRepository } from "typeorm";
 import { UserEntity } from "../database/entities/UserEntity";
 import { UserService } from "../services/user.service";
-var bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const SECRET_KEY = process.env.SECRET_KEY;
+const SECRET_KEY = 'RXCT34ZE5GFDSFD756';
 export class UserController {
     public router: Router;
     private userService: UserService;
@@ -57,32 +58,41 @@ export class UserController {
     }
 
     public auth = async (req: Request, res: Response) => {
-        const id = req['params']['id'];
-        const user = req['body'] as UserEntity;
-        const response = await this.userService.getUserById(Number(id));
-        var salt = bcrypt.genSaltSync(10);
-        var hash = bcrypt.hashSync(user.mot_de_passe, salt);
+        const { email, mot_de_passe } = req.body;
+        const user = await this.userService.getUserByMail(email);
 
-        var salt2 = bcrypt.genSaltSync(10);
-        var hash2 = bcrypt.hashSync("TESTNUMERO7", salt);
-        var mail = "TESTNUMERO7@test.com";
+        if (email === user.mail) {
+            bcrypt.compare(mot_de_passe, user.mot_de_passe).then((rescompare: boolean) => {
+                if (rescompare === false) {
+                    console.log("T'ES AUSSI CON QU'ALEX MA PAROLE");
+                } else {
+                    const expireIn = 24 * 60 * 60;
+                    const token = jwt.sign({
+                        user: user
+                    },
+                    SECRET_KEY,
+                        {
+                            expiresIn: expireIn
+                        });
 
-        if ((hash === hash2) && (user.mail === mail)) {
-            console.log("GG C'EST LE MEME MOT DE PASSE DYLAN JE TE FILE TON TOKEN JWT");
-        } else {
-            console.log("T'ES AUSSI CON QU'ALEX MA PAROLE");
+                    res.header('Authorization', 'Bearer ' + token);
+                }
+            });
+
+
         }
         res.send(response);
     }
-        /**
-     * Configure the routes of controller
-     */
+
+    /**
+ * Configure the routes of controller
+ */
     public routes() {
         this.router.get('/', this.index);
         this.router.post('/', this.create);
         this.router.put('/:id', this.update);
         this.router.delete('/:id', this.delete);
         this.router.get('/:id', this.getUserById);
-        this.router.get('/test/:id', this.auth);
+        this.router.post('/auth', this.auth);
     }
 }
