@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import { UserController } from './controllers/user.controller'; // import the post controller
 import { RoleController } from './controllers/role.controller';
 import { RessourceController } from './controllers/ressource.controller';
-import { createConnection } from "typeorm";
+import { createConnection, getRepository } from "typeorm";
 import { CommentaireController } from './controllers/commentaire.controller';
 import { AbonnementController } from './controllers/abonnement.controller';
 import { AbonneController } from './controllers/abonne.controller';

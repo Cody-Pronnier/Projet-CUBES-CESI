@@ -39,4 +39,12 @@ export class UserService {
           }
           return userById;
     }
+
+    public getUserByMail = async (email: string) => {
+        const userByMail = await this.userRepository.findOne({mail: email});
+        if (!userByMail) {
+            throw new Error("Erreur d'id d'utilisateur");;
+          }
+          return userByMail;
+    }
 }

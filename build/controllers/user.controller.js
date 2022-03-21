@@ -41,7 +41,7 @@ var express_1 = require("express");
 var user_service_1 = require("../services/user.service");
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-var SECRET_KEY = process.env.SECRET_KEY;
+var SECRET_KEY = 'RXCT34ZE5GFDSFD756';
 var UserController = /** @class */ (function () {
     function UserController() {
         var _this = this;
@@ -115,27 +115,32 @@ var UserController = /** @class */ (function () {
             });
         }); };
         this.auth = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var id, user, response, salt, hash, salt2, hash2, mail;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var _a, email, mot_de_passe, user;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
-                        id = req['params']['id'];
-                        user = req['body'];
-                        return [4 /*yield*/, this.userService.getUserById(Number(id))];
+                        _a = req.body, email = _a.email, mot_de_passe = _a.mot_de_passe;
+                        return [4 /*yield*/, this.userService.getUserByMail(email)];
                     case 1:
-                        response = _a.sent();
-                        salt = bcrypt.genSaltSync(10);
-                        hash = bcrypt.hashSync(user.mot_de_passe, salt);
-                        salt2 = bcrypt.genSaltSync(10);
-                        hash2 = bcrypt.hashSync("TESTNUMERO7", salt);
-                        mail = "TESTNUMERO7@test.com";
-                        if ((hash === hash2) && (user.mail === mail)) {
-                            console.log("GG C'EST LE MEME MOT DE PASSE DYLAN JE TE FILE TON TOKEN JWT");
+                        user = _b.sent();
+                        if (email === user.mail) {
+                            bcrypt.compare(mot_de_passe, user.mot_de_passe).then(function (rescompare) {
+                                if (rescompare === false) {
+                                    console.log("T'ES AUSSI CON QU'ALEX MA PAROLE");
+                                }
+                                else {
+                                    var expireIn = 24 * 60 * 60;
+                                    var token = jwt.sign({
+                                        user: user
+                                    }, SECRET_KEY, {
+                                        expiresIn: expireIn
+                                    });
+                                    res.header('Authorization', 'Bearer ' + token);
+                                    return res.status(200).json('auth_ok');
+                                }
+                            });
                         }
-                        else {
-                            console.log("T'ES AUSSI CON QU'ALEX MA PAROLE");
-                        }
-                        res.send(response);
+                        res.send(express_1.response);
                         return [2 /*return*/];
                 }
             });
@@ -153,7 +158,7 @@ var UserController = /** @class */ (function () {
         this.router.put('/:id', this.update);
         this.router.delete('/:id', this.delete);
         this.router.get('/:id', this.getUserById);
-        this.router.get('/test/:id', this.auth);
+        this.router.post('/auth', this.auth);
     };
     return UserController;
 }());

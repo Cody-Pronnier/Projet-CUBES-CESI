@@ -101,6 +101,21 @@ var UserService = /** @class */ (function () {
                 }
             });
         }); };
+        this.getUserByMail = function (email) { return __awaiter(_this, void 0, void 0, function () {
+            var userByMail;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.userRepository.findOne({ mail: email })];
+                    case 1:
+                        userByMail = _a.sent();
+                        if (!userByMail) {
+                            throw new Error("Erreur d'id d'utilisateur");
+                            ;
+                        }
+                        return [2 /*return*/, userByMail];
+                }
+            });
+        }); };
         this.userRepository = (0, typeorm_1.getConnection)('projetCUBES').getCustomRepository(user_repository_1.UserRepository);
     }
     return UserService;
