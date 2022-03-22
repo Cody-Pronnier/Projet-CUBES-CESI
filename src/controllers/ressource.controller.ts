@@ -20,6 +20,7 @@ export class RessourceController {
 
     public create = async (req: Request, res: Response) => {
         const ressource = req['body'] as RessourceEntity;
+        ressource.date_creation = new Date();
         const newRessource = await this.ressourceService.create(ressource);
         res.send(newRessource); // Execute the method of service
 

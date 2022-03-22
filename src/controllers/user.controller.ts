@@ -70,12 +70,13 @@ export class UserController {
                     const token = jwt.sign({
                         user: user
                     },
-                    SECRET_KEY,
+                        SECRET_KEY,
                         {
                             expiresIn: expireIn
                         });
 
                     res.header('Authorization', 'Bearer ' + token);
+
                 }
             });
 

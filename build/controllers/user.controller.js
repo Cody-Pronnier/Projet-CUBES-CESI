@@ -136,7 +136,6 @@ var UserController = /** @class */ (function () {
                                         expiresIn: expireIn
                                     });
                                     res.header('Authorization', 'Bearer ' + token);
-                                    return res.status(200).json('auth_ok');
                                 }
                             });
                         }
